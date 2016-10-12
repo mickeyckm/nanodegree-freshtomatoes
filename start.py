@@ -1,26 +1,35 @@
 import os
 import tmdbsimple as tmdb
-# from tmdb3 import set_key
 import media
 import fresh_tomatoes as ft
 
 movies = []
 
 if os.environ.get('TMDB_API', False):
+    # Retrieve API KEY
     tmdb.API_KEY = os.environ['TMDB_API']
+
+    # TMDB Movie Ids
     movie_ids = [271110, 297761, 246655, 278154, 135397, 188927]
+
+    # Get Configuration
     configuration = tmdb.Configuration().info()
     image_base_url = configuration['images']['secure_base_url']
     image_width = "w500"
 
     for movie_id in movie_ids:
         m = tmdb.Movies(movie_id)
+
+        # Retrieve Image URL
         minfo = m.info()
         poster_image_url = image_base_url + image_width + minfo['poster_path']
+
+        # Retrieve Youtube Video URL
         videos = m.videos()
         video = videos['results'][0]
         youtube_url = 'https://youtube.com/watch?v=' + video['key']
         
+        # Append Movie object
         movie = media.Movie(m.title, m.overview, poster_image_url, youtube_url)
         movies.append(movie)
 

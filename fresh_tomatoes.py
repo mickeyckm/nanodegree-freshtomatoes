@@ -57,6 +57,20 @@ main_page_head = '''
             top: 0;
             background-color: white;
         }
+        #storyline-header {
+            margin-top :0;
+            color: #aaa;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        #storyline-container {
+            background-color: #222;
+            color: #eee;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 22px;
+        }
+
     </style>
     <script type="text/javascript" charset="utf-8">
         // Pause the video when the modal is closed
@@ -69,12 +83,14 @@ main_page_head = '''
         $(document).on('click', '.movie-tile', function (event) {
             var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
             var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            console.log($(this).children('.full-storyline').html());
             $("#trailer-video-container").empty().append($("<iframe></iframe>", {
               'id': 'trailer-video',
               'type': 'text-html',
               'src': sourceUrl,
               'frameborder': 0
-            }));
+            }))
+            $("#storyline-content").empty().append($(this).children('.full-storyline').html());
         });
         // Animate in the movies when the page loads
         $(document).ready(function () {
@@ -97,7 +113,10 @@ main_page_content = '''
           <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
             <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
           </a>
-          <div class="scale-media" id="trailer-video-container">
+          <div class="scale-media" id="trailer-video-container"></div>
+          <div id="storyline-container">
+            <h4 id="storyline-header">Storyline</h4>
+            <div id="storyline-content"></div>
           </div>
         </div>
       </div>
@@ -125,7 +144,8 @@ movie_tile_content = '''
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
     <img src="{poster_image_url}" width="220" height="342" style="box-shadow: 3px 3px 3px #444444">
     <h2 style="font-weight: 300;">{movie_title}</h2>
-    <p style="color: #999;">{movie_storyline}...</p>
+    <p style="color: #999;">{movie_storyline}... <a href="#">click for more &raquo;</a></p>
+    <div class="full-storyline" style="display: none">{movie_fullstoryline}</div>
 </div>
 '''
 
@@ -148,7 +168,8 @@ def create_movie_tiles_content(movies):
             movie_title=movie.title,
             poster_image_url=movie.poster_image_url,
             trailer_youtube_id=trailer_youtube_id,
-            movie_storyline=movie.storyline[:120]
+            movie_storyline=movie.storyline[:120],
+            movie_fullstoryline=movie.storyline
         )
     return content
 

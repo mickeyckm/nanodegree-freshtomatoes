@@ -1,6 +1,6 @@
 # FreshTomatoes
 
-FreshTomatoes is a website to showcase a list of my favourite movies.
+FreshTomatoes is a website to showcase a list of favourite movies. Visitors can review the movie based on the storyline and the trailers.  
 
 
 ## Table of contents
@@ -31,9 +31,12 @@ FreshTomatoes is a website to showcase a list of my favourite movies.
 
 ## Demo
 
-Check out the demo [here](https://s3-ap-southeast-1.amazonaws.com/udacity-full-stack/fresh_tomatoes.html).
+Check out the demo [here](https://s3-ap-southeast-1.amazonaws.com/udacity-full-stack/freshtomatoes/demo.html).
+
+![home page](https://s3-ap-southeast-1.amazonaws.com/udacity-full-stack/freshtomatoes/home.jpg)
+![trailer](https://s3-ap-southeast-1.amazonaws.com/udacity-full-stack/freshtomatoes/trailers.jpg)
 
 
 ## License
 
-Code and documentation copyright 2016 [Mickey Cheong](https://cheo.ng). Code released under the [MIT License](https://github.com/mickeyckm/freshtomatoes/blob/master/LICENSE).
+Code copyright 2016 [Mickey Cheong](https://cheo.ng). Code released under the [MIT License](https://github.com/mickeyckm/freshtomatoes/blob/master/LICENSE).

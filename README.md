@@ -33,9 +33,8 @@ FreshTomatoes is a website to showcase a list of favourite movies. Visitors can 
 
 Check out the demo [here](https://s3-ap-southeast-1.amazonaws.com/udacity-full-stack/freshtomatoes/demo.html).
 
-![home page](https://s3-ap-southeast-1.amazonaws.com/udacity-full-stack/freshtomatoes/home.jpg)
-![trailer](https://s3-ap-southeast-1.amazonaws.com/udacity-full-stack/freshtomatoes/trailers.jpg)
-
+![home](https://raw.github.com/mickeyckm/freshtomatoes/master/screenshots/ft-home.jpg)
+![trailer](https://raw.github.com/mickeyckm/freshtomatoes/master/screenshots/ft-trailers.jpg)
 
 ## License
 

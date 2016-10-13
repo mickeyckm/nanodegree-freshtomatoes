@@ -30,7 +30,10 @@ if os.environ.get('TMDB_API', False):
         youtube_url = 'https://youtube.com/watch?v=' + video['key']
 
         # Append Movie object
-        movie = media.Movie(m.title, m.overview, poster_image_url, youtube_url)
+        movie = media.Movie(m.title)
+        movie.storyline = m.overview
+        movie.poster_url = poster_image_url
+        movie.trailer_url = youtube_url
         movies.append(movie)
 
 else:
